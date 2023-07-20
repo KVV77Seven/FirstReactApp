@@ -1,0 +1,18 @@
+@use "base.scss";
+
+
+html, a {
+    font-size: map-get(base.$themeFont, normal);
+    color: map-get(base.$themeColor, primary);
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+* {
+    box-sizing: inherit;
+}

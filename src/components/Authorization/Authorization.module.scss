@@ -1,0 +1,9 @@
+@use "../base.scss";
+
+.auth {
+    @extend .gridCentered;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(2, fit-content(70%));
+    margin-left: 20%;
+    margin-right: 20%;
+}

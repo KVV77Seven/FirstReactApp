@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+                        /*========== PROJECT CONSTS ==========*/
+$themeColor: (
+    primary: #000,
+    secondary: #666,
+);
+
+$themeFont: (
+    small: 9px,
+    normal: 13px,
+    large: 15px,
+    xLarge: 25px,
+    xxLarge: 50px
+);
+
+                        /*========== PROPERTIES ==========*/
+.gridCentered {
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+                        /*========== ELEMENTS ==========*/
+
+@mixin parallelogramIn($borderWidth: 2px, $borderColor: map-get($themeColor, primary), $skew: -20deg) {
+    border: $borderWidth solid $borderColor;
+    transform: skewX($skew);
+}
+
+@mixin parallelogramOut($skew: 20deg) {
+    transform: skewX($skew);
+}
+
+.hr {
+    width: 100%;
+    border: 1px solid map-get($themeColor, primary);
+    margin-top: 16px;
+}
+
+                        /*========== ANIMATIONS ==========*/
+
+@mixin hoverUnderlineCenter ($transition: 0.3s, $width: 110%, $height: 1px, $background: color.adjust(map.get($themeColor, primary), $alpha: -0.15), $bottom: -5px) {
+    position: relative;
+    transition: $transition;
+
+    &:before {
+        content: "";
+        width: $width;
+        height: $height;
+        background: $background;
+        position: absolute;
+        transition: $transition;
+        transform: scale(0);
+        bottom: $bottom;
+        left: math.div(-1 * ($width - 100), 2);
+    }
+    &:hover:before {
+        transform: scale(1);
+    }
+}
+
+@mixin hoverScale ($transition: 0.5s, $scale: 1.1) {
+    transition: $transition;
+    &:hover {
+        transform: scale($scale);
+    }
+}

@@ -1,0 +1,6 @@
+@use "../base.scss";
+
+.menu {
+    @extend .gridCentered;
+    grid-template-columns: repeat(4, fit-content(33%));
+}

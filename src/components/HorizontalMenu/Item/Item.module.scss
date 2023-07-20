@@ -1,0 +1,24 @@
+@use "../../base.scss";
+
+
+.item {
+    margin: 10px;
+}
+.link {
+    padding: 10px;
+    transition: 0.5s;
+    font-size: map-get(base.$themeFont, large);
+}
+.active {
+    transform: scale(1.1);
+}
+.under {
+    @include base.hoverUnderlineCenter($bottom: 10px, $width: 90%);
+}
+
+.scale {
+    @include base.hoverScale;
+}
+
+
+

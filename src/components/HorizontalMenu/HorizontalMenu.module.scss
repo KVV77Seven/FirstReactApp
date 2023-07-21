@@ -2,5 +2,6 @@
 
 .menu {
     @extend .gridCentered;
+    justify-content: space-around;
     grid-template-columns: repeat(4, fit-content(33%));
 }

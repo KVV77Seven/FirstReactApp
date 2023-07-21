@@ -1,17 +1,25 @@
 import style from "./Authorization.module.scss"
 import Item from './../HorizontalMenu/Item/Item';
-import Parallelogram from './../Parallelogram/Parallelogram';
 
 
 const Authorization = () => {
   return (
     <ul className={style.auth}>
-      <Parallelogram>
-        <Item>Вход</Item>
-      </Parallelogram>
-      <Parallelogram>
-        <Item>Регистрация</Item>
-      </Parallelogram>
+      <div className={style.parIn}>
+        <Item primary>
+          <div className={style.parOut}>
+            Вход
+          </div>
+        </Item>
+      </div>
+
+      <div className={style.parIn}>
+        <Item primary>
+          <div className={style.parOut}>
+            Регистрация
+          </div>
+        </Item>
+      </div>
     </ul>
   )
 }

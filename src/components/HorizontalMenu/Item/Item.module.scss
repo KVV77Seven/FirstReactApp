@@ -2,22 +2,45 @@
 
 
 .item {
-    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+        .under {
+            &:before {
+                transform: scale(1);
+            }
+        }
+    }
 }
 .link {
-    padding: 10px;
     transition: 0.5s;
-    font-size: map-get(base.$themeFont, large);
+    font-size: base.$fontLarge;
+    color: base.$colorSecondary;
+
+    &:hover {
+        color: base.$colorPrimary;
+    }
 }
+
 .active {
-    transform: scale(1.1);
+    @extend .primary;
 }
+
+.activeUnder {
+    @include base.underline($bottom: -4px, $width: 110%);
+}
+
 .under {
-    @include base.hoverUnderlineCenter($bottom: 10px, $width: 90%);
+    @include base.hoverUnderlineCenter($bottom: -4px, $width: 110%);
 }
 
 .scale {
-    @include base.hoverScale;
+    @include base.hoverScale($scale: 1.05);
+}
+
+.primary {
+    color: base.$colorPrimary;
 }
 
 

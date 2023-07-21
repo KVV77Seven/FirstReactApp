@@ -7,3 +7,23 @@
     margin-left: 20%;
     margin-right: 20%;
 }
+
+.parIn {
+    @extend .parallelogramIn;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: base.$colorPrimary;
+        box-shadow: 5px 5px 1px base.$colorSecondary;
+        .parOut {
+            color: base.$colorInvPrimary !important;
+
+        }
+    }
+}
+
+.parOut {
+    @extend .parallelogramOut;
+    transition: 0.3s;
+    font-size: base.$fontNormal;
+}

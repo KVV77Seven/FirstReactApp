@@ -1,19 +1,16 @@
-@use "sass:map";
 @use "sass:math";
 @use "sass:color";
                         /*========== PROJECT CONSTS ==========*/
-$themeColor: (
-    primary: #000,
-    secondary: #666,
-);
+$colorPrimary: #000;
+$colorInvPrimary: #fff;
+$colorSecondary: #666;
+$colorMain: #8400ff;
 
-$themeFont: (
-    small: 9px,
-    normal: 13px,
-    large: 15px,
-    xLarge: 25px,
-    xxLarge: 50px
-);
+$fontSmall: 9px;
+$fontNormal: 16px;
+$fontLarge: 20px;
+$fontXLarge: 32px;
+$fontXXLarge: 50px;
 
                         /*========== PROPERTIES ==========*/
 .gridCentered {
@@ -26,24 +23,38 @@ $themeFont: (
 
                         /*========== ELEMENTS ==========*/
 
-@mixin parallelogramIn($borderWidth: 2px, $borderColor: map-get($themeColor, primary), $skew: -20deg) {
-    border: $borderWidth solid $borderColor;
-    transform: skewX($skew);
+.parallelogramIn {
+    border: 1.5px solid $colorPrimary;
+    transform: skewX(-20deg);
 }
 
-@mixin parallelogramOut($skew: 20deg) {
-    transform: skewX($skew);
+.parallelogramOut {
+    transform: skewX(20deg);
+}
+
+@mixin underline ($width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -5px) {
+    position: relative;
+
+    &:before {
+        content: "";
+        width: $width;
+        height: $height;
+        background: $background;
+        position: absolute;
+        bottom: $bottom;
+        left: math.div(-1 * ($width - 100), 2);
+    }
 }
 
 .hr {
     width: 100%;
-    border: 1px solid map-get($themeColor, primary);
+    border: 1px solid $colorPrimary;
     margin-top: 16px;
 }
 
                         /*========== ANIMATIONS ==========*/
 
-@mixin hoverUnderlineCenter ($transition: 0.3s, $width: 110%, $height: 1px, $background: color.adjust(map.get($themeColor, primary), $alpha: -0.15), $bottom: -5px) {
+@mixin hoverUnderlineCenter ($transition: 0.3s, $width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -5px) {
     position: relative;
     transition: $transition;
 

@@ -3,7 +3,8 @@
 .navbar {
     width: 100%;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    justify-content: space-around;
+    grid-template-columns: minmax(350px, 500px) minmax(200px, 300px);
 }
 
 h1 {
@@ -11,14 +12,29 @@ h1 {
 }
 
 .logo {
-    font-size: map-get(base.$themeFont, xLarge);
+    font-size: base.$fontXLarge;
     letter-spacing: 3px;
     font-weight: bold;
+    color: base.$colorMain;
 }
 
 .header {
+    width: 100%;
+    box-shadow: 0 3px 5px #808080;
+}
+
+.container {
     @extend .gridCentered;
     grid-template-columns: 1fr 3fr;
-    width: 100%;
-    margin-top: 12px;
+    width: 80%;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 98%;
+    }
 }

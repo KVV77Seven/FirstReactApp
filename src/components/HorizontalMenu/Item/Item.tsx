@@ -6,16 +6,19 @@ interface ItemProps {
     underline?: boolean;
     active?: boolean;
     scale?: boolean;
+    primary?: boolean;
 }
 
-const Item: React.FC<ItemProps> = ({children, underline, active, scale}) => {
-  const linkClass = style.link + ' ' + (underline ? style.under : null) + ' ' + (active ? style.active : null);
-  const itemClass = style.item + ' ' + (scale ? null : style.scale) + ' ' + (active ? style.active : null);
+const Item: React.FC<ItemProps> = ({children, underline, active, scale, primary}) => {
+  const underClass = active ? style.activeUnder : style.under;
+  const linkClass = style.link + ' ' + (underline ? underClass : null) + ' ' + (active ? style.active : null) + ' ' + (primary ? style.primary : null);
+  const itemClass = style.item + ' ' + (scale ? style.scale : null) + ' ' + (active ? style.active : null);
+
   return (
     <li className={itemClass}>
-        <a href="#" className={linkClass}>
+        <p className={linkClass}>
             {children}
-        </a>
+        </p>
     </li>
   )
 }

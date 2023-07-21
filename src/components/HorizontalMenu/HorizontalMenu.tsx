@@ -4,10 +4,10 @@ import Item from './Item/Item';
 const HorizontalMenu = () => {
   return (
       <ul className={style.menu}>
-        <Item active = {true}>Главная</Item>
-        <Item>Туториалы</Item>
-        <Item>Донат</Item>
-        <Item>Обсуждения</Item>
+        <Item active underline>Главная</Item>
+        <Item underline>Туториалы</Item>
+        <Item underline>Донат</Item>
+        <Item underline>Обсуждения</Item>
       </ul>
   )
 }

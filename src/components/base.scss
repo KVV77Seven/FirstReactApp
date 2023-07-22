@@ -4,13 +4,16 @@
 $colorPrimary: #000;
 $colorInvPrimary: #fff;
 $colorSecondary: #666;
+$colorLiteSecondary: #808080;
 $colorMain: #8400ff;
 
-$fontSmall: 9px;
-$fontNormal: 16px;
-$fontLarge: 20px;
-$fontXLarge: 32px;
-$fontXXLarge: 50px;
+$fontSmall: 12px;
+$fontNormal: 14px;
+$fontLarge: 16px;
+$fontXLarge: 20px;
+$fontXXLarge: 28px;
+
+$grooveStep: 4px;
 
                         /*========== PROPERTIES ==========*/
 .gridCentered {
@@ -23,8 +26,8 @@ $fontXXLarge: 50px;
 
                         /*========== ELEMENTS ==========*/
 
-.parallelogramIn {
-    border: 1.5px solid $colorPrimary;
+@mixin parallelogramIn ($borderWidth: 1.5px, $color: $colorPrimary) {
+    border: $borderWidth solid $color;
     transform: skewX(-20deg);
 }
 
@@ -32,7 +35,7 @@ $fontXXLarge: 50px;
     transform: skewX(20deg);
 }
 
-@mixin underline ($width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -5px) {
+@mixin underline ($width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -$grooveStep) {
     position: relative;
 
     &:before {
@@ -49,14 +52,13 @@ $fontXXLarge: 50px;
 .hr {
     width: 100%;
     border: 1px solid $colorPrimary;
-    margin-top: 16px;
+    margin-top: $grooveStep * 4;
 }
 
                         /*========== ANIMATIONS ==========*/
 
-@mixin hoverUnderlineCenter ($transition: 0.3s, $width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -5px) {
+@mixin hoverUnderlineCenter ($transition: 0.3s, $width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -$grooveStep) {
     position: relative;
-    transition: $transition;
 
     &:before {
         content: "";
@@ -64,10 +66,10 @@ $fontXXLarge: 50px;
         height: $height;
         background: $background;
         position: absolute;
-        transition: $transition;
         transform: scale(0);
         bottom: $bottom;
         left: math.div(-1 * ($width - 100), 2);
+        transition: $transition;
     }
     &:hover:before {
         transform: scale(1);
@@ -78,5 +80,42 @@ $fontXXLarge: 50px;
     transition: $transition;
     &:hover {
         transform: scale($scale);
+    }
+}
+
+@mixin quadroLines ($transition: 0.3s, $borderWidth: 1.5px, $color: $colorSecondary, $verticalAdd: 10px, $HorizontalAdd:10px) {
+    position: relative;
+    z-index: 1;
+
+    &:before, &:after {
+        transition: $transition;
+        position: absolute;
+        content: '';
+
+        left: calc($HorizontalAdd / -2);
+        bottom: calc($verticalAdd / -2);
+    }
+    
+    &:before {
+        transform: scaleX(0);
+        border-top: solid $borderWidth $color;
+        border-bottom: solid $borderWidth $color;
+
+        width: calc(100% + $HorizontalAdd);
+        height: calc(100% + $verticalAdd);
+    }
+    &:after {
+        transform: scaleY(0);
+        border-left: solid $borderWidth $color;
+        border-right: solid $borderWidth $color;
+
+        height: calc(100% + $verticalAdd);
+        width: calc(100% + $HorizontalAdd);
+    }
+    &:hover:before {
+        transform: scaleX(1);
+    }
+    &:hover:after {
+        transform: scaleY(1);
     }
 }

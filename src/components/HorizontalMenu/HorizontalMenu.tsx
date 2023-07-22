@@ -1,5 +1,5 @@
 import style from "./HorizontalMenu.module.scss"
-import Item from './Item/Item';
+import Item from '../Item/Item';
 
 const HorizontalMenu = () => {
   return (

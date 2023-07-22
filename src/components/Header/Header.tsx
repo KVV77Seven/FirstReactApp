@@ -1,21 +1,16 @@
 import style from "./Header.module.scss"
 import HorizontalMenu from './../HorizontalMenu/HorizontalMenu';
 import Authorization from './../Authorization/Authorization';
+import Logo from './Logo/Logo';
 
 const Header = () => {
   return (
     <header className={style.header}>
-      <div className={style.container}>
-        <h1>
-          <a href="#" className={style.logo}>
-            Super Games
-          </a>
-        </h1>
-        <nav className={style.navbar}>
-          <HorizontalMenu/>
-          <Authorization/>
-        </nav>
-      </div>
+      <nav className={style.nav}>
+        <Logo/>
+        <HorizontalMenu/>
+        <Authorization/>
+      </nav>
     </header>
   )
 }

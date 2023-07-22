@@ -1,8 +1,8 @@
-@use "../../base.scss";
+@use "../base.scss";
 
 
 .item {
-    padding: 10px;
+    padding: base.$grooveStep * 3;
     cursor: pointer;
 
     &:hover {
@@ -11,16 +11,15 @@
                 transform: scale(1);
             }
         }
+        .link {
+            color: base.$colorPrimary;
+        }
     }
 }
 .link {
     transition: 0.5s;
     font-size: base.$fontLarge;
     color: base.$colorSecondary;
-
-    &:hover {
-        color: base.$colorPrimary;
-    }
 }
 
 .active {
@@ -28,11 +27,11 @@
 }
 
 .activeUnder {
-    @include base.underline($bottom: -4px, $width: 110%);
+    @include base.underline($bottom: -4px, $width: 110%, $height:1.5px, $background: base.$colorSecondary);
 }
 
 .under {
-    @include base.hoverUnderlineCenter($bottom: -4px, $width: 110%);
+    @include base.hoverUnderlineCenter($bottom: -4px, $width: 110%, $height:1.5px, $background: base.$colorSecondary);
 }
 
 .scale {

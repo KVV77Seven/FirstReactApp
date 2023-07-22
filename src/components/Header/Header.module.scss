@@ -1,40 +1,23 @@
 @use "../base.scss";
 
-.navbar {
-    width: 100%;
-    display: grid;
-    justify-content: space-around;
-    grid-template-columns: minmax(350px, 500px) minmax(200px, 300px);
-}
-
-h1 {
-    @include base.hoverScale($transition: 1s, $scale: 1.05);
-}
-
-.logo {
-    font-size: base.$fontXLarge;
-    letter-spacing: 3px;
-    font-weight: bold;
-    color: base.$colorMain;
-}
-
-.header {
-    width: 100%;
-    box-shadow: 0 3px 5px #808080;
-}
-
-.container {
+.nav {
     @extend .gridCentered;
-    grid-template-columns: 1fr 3fr;
-    width: 80%;
-    padding-top: 12px;
-    padding-bottom: 10px;
+    grid-template-columns: minmax(200px, 400px) minmax(350px, 500px) minmax(200px, 300px);
+    max-width: 1200px;
+    justify-content: space-around;
+    padding-top: base.$grooveStep * 3;
+    padding-bottom: base.$grooveStep * 3;
     margin-right: auto;
     margin-left: auto;
 }
 
+.header {
+    width: 100%;
+    box-shadow: 0 3px 5px base.$colorLiteSecondary;
+}
+
 @media (max-width: 1024px) {
     .container {
-        width: 98%;
+        width: 96%;
     }
 }

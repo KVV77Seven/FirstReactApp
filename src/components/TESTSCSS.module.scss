@@ -1,0 +1,16 @@
+@use './base.scss';
+
+.test {
+    @include base.quadroLines;
+    font-size: 30px;
+    width: 300px;
+    margin: 300px auto auto auto;
+    display: flex;
+    justify-content: center;
+}
+
+.bigBlock {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0 20px 0
+}

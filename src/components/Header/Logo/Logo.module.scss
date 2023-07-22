@@ -1,0 +1,13 @@
+@use "../../base.scss";
+
+.logo {
+    font-size: base.$fontXXLarge;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: base.$colorMain;
+}
+
+.h1 {
+    @include base.hoverScale($transition: 1s, $scale: 1.05);
+    text-align: center;
+}

@@ -1,0 +1,23 @@
+@use "../base.scss";
+
+.parIn {
+    @include base.parallelogramIn($color: base.$colorSecondary);
+    padding: base.$grooveStep * 2 base.$grooveStep * 3;
+    background-color: base.$colorInvPrimary;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: base.$colorPrimary;
+        border-color: base.$colorPrimary;
+        box-shadow: 5px 5px 1px base.$colorSecondary;
+        .parOut {
+            color: base.$colorInvPrimary !important;
+        }
+    }
+}
+
+.parOut {
+    @extend .parallelogramOut;
+    transition: 0.3s;
+    font-size: base.$fontNormal;
+}

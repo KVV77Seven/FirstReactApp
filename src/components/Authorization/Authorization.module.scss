@@ -2,28 +2,8 @@
 
 .auth {
     @extend .gridCentered;
-    grid-column-gap: 20px;
+    grid-column-gap: base.$grooveStep * 5;
     grid-template-columns: repeat(2, fit-content(70%));
     margin-left: 20%;
     margin-right: 20%;
-}
-
-.parIn {
-    @extend .parallelogramIn;
-    transition: 0.3s;
-
-    &:hover {
-        background-color: base.$colorPrimary;
-        box-shadow: 5px 5px 1px base.$colorSecondary;
-        .parOut {
-            color: base.$colorInvPrimary !important;
-
-        }
-    }
-}
-
-.parOut {
-    @extend .parallelogramOut;
-    transition: 0.3s;
-    font-size: base.$fontNormal;
 }

@@ -15,6 +15,12 @@ $fontXXLarge: 28px;
 
 $grooveStep: 4px;
 
+$breakXSm: 320px;
+$breakSm: 768px;
+$breakMd: 1024px;
+$breakLg: 1280px;
+$breakXLg: 1440px;
+
                         /*========== PROPERTIES ==========*/
 .gridCentered {
     display:grid;
@@ -83,9 +89,8 @@ $grooveStep: 4px;
     }
 }
 
-@mixin quadroLines ($transition: 0.3s, $borderWidth: 1.5px, $color: $colorSecondary, $verticalAdd: 10px, $HorizontalAdd:10px) {
+@mixin quadroLines ($transition: 0.3s, $borderWidth: 1.5px, $color: $colorSecondary, $verticalAdd: $grooveStep*3, $HorizontalAdd: $grooveStep*3) {
     position: relative;
-    z-index: 1;
 
     &:before, &:after {
         transition: $transition;

@@ -5,3 +5,17 @@
     justify-content: space-around;
     grid-template-columns: repeat(4, fit-content(33%));
 }
+
+.burger {
+    display: none;
+}
+
+@media (max-width: base.$breakSm) {
+    .burger {
+        display: block;
+    }
+    .menu {
+        display: none;
+    }
+}
+

@@ -7,3 +7,16 @@
     margin-left: 20%;
     margin-right: 20%;
 }
+
+.authSm {
+    display: none;
+}
+
+@media (max-width: base.$breakSm) {
+    .auth {
+        display: none;
+    }
+    .authSm {
+        display: block;
+    }
+}

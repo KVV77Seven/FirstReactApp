@@ -3,11 +3,16 @@ import ParallelogramBtn from './../ParallelogramBtn/ParallelogrammBtn';
 
 
 const Authorization = () => {
-  return (
+  return ( 
+  <>
     <ul className={style.auth}>
       <ParallelogramBtn>Вход</ParallelogramBtn>
       <ParallelogramBtn>Регистрация</ParallelogramBtn>
     </ul>
+    <div className={style.authSm}>
+      <ParallelogramBtn>Авторизация</ParallelogramBtn>
+    </div>
+  </>
   )
 }
 

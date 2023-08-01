@@ -11,8 +11,8 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({children, underline, active, scale, primary}) => {
   const underClass = active ? style.activeUnder : style.under;
-  const linkClass = style.link + ' ' + (underline ? underClass : null) + ' ' + (active ? style.active : null) + ' ' + (primary ? style.primary : null);
-  const itemClass = style.item + ' ' + (scale ? style.scale : null) + ' ' + (active ? style.active : null);
+  const linkClass = style.link + ' ' + (underline ? underClass : '') + ' ' + (active ? style.active : '') + ' ' + (primary ? style.primary : '');
+  const itemClass = style.item + ' ' + (scale ? style.scale : '') + ' ' + (active ? style.active : '');
 
   return (
     <li className={itemClass}>

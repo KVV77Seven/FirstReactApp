@@ -11,13 +11,27 @@
     margin-left: auto;
 }
 
+.navSm {
+    @extend .gridCentered;
+    display: none;
+}
+
 .header {
     width: 100%;
     box-shadow: 0 3px 5px base.$colorLiteSecondary;
 }
 
-@media (max-width: 1024px) {
-    .container {
-        width: 96%;
+@media (max-width: base.$breakSm) {
+    .nav {
+        display: none;
+    }
+    .navSm {
+        display: grid;
+        grid-template-columns: minmax(150px, 10fr) 1fr 1fr;
+        justify-content: space-around;
+        padding-top: base.$grooveStep * 2;
+        padding-bottom: base.$grooveStep * 2;
+        margin-right: auto;
+        margin-left: auto;
     }
 }

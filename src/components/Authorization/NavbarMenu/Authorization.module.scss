@@ -1,0 +1,28 @@
+@use "../../base.scss";
+
+.auth {
+    @extend .gridCentered;
+    grid-column-gap: base.$grooveStep * 5;
+    grid-template-columns: repeat(2, fit-content(70%));
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.authSm {
+    display: none;
+}
+
+@media (max-width: base.$breakSm) {
+    .auth {
+        display: none;
+    }
+    .authSm {
+        display: block;
+    }
+}
+
+@media (max-width: base.$breakXSm) {
+    .authSm {
+        //display: none;
+    }
+}

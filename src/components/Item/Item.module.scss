@@ -4,11 +4,16 @@
 .item {
     padding: base.$grooveStep * 3;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
-        .under {
-            &:before {
-                transform: scale(1);
+        @media #{base.$mouseDevice} {
+            .under {
+                &:before {
+                    transform: scale(1);
+                }
             }
         }
         .link {
@@ -40,6 +45,17 @@
 
 .primary {
     color: base.$colorPrimary;
+}
+
+@media (max-width: base.$breakSm) {
+    .item {
+        width: 100%;
+        text-align: center;
+    }
+    .link {
+        font-size: base.$fontXLarge;
+    }
+    
 }
 
 

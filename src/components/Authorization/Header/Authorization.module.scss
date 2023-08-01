@@ -1,4 +1,4 @@
-@use "../base.scss";
+@use "../../base.scss";
 
 .auth {
     @extend .gridCentered;
@@ -18,5 +18,11 @@
     }
     .authSm {
         display: block;
+    }
+}
+
+@media (max-width: base.$breakXSm) {
+    .authSm {
+        //display: none;
     }
 }

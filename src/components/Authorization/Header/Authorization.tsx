@@ -1,6 +1,6 @@
 import style from "./Authorization.module.scss"
-import ParallelogramBtn from './../ParallelogramBtn/ParallelogrammBtn';
-
+import ParallelogramBtn from '../../ParallelogramBtn/ParallelogrammBtn'
+import account from "../../../assets/pictures/account.svg"
 
 const Authorization = () => {
   return ( 
@@ -10,8 +10,9 @@ const Authorization = () => {
       <ParallelogramBtn>Регистрация</ParallelogramBtn>
     </ul>
     <div className={style.authSm}>
-      <ParallelogramBtn>Авторизация</ParallelogramBtn>
-    </div>
+      <img src={account} alt="Authorization"/>
+    </div> 
+    
   </>
   )
 }

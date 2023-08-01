@@ -21,6 +21,7 @@ $breakMd: 1024px;
 $breakLg: 1280px;
 $breakXLg: 1440px;
 
+$mouseDevice: '(hover:hover) and (pointer:fine)';
                         /*========== PROPERTIES ==========*/
 .gridCentered {
     display:grid;
@@ -62,7 +63,6 @@ $breakXLg: 1440px;
 }
 
                         /*========== ANIMATIONS ==========*/
-
 @mixin hoverUnderlineCenter ($transition: 0.3s, $width: 110%, $height: 1px, $background: color.adjust($colorPrimary, $alpha: -0.15), $bottom: -$grooveStep) {
     position: relative;
 
@@ -78,14 +78,19 @@ $breakXLg: 1440px;
         transition: $transition;
     }
     &:hover:before {
-        transform: scale(1);
+        @media #{$mouseDevice} {
+            transform: scale(1);
+        }
     }
 }
 
 @mixin hoverScale ($transition: 0.5s, $scale: 1.1) {
     transition: $transition;
+    
     &:hover {
-        transform: scale($scale);
+        @media #{$mouseDevice} {
+            transform: scale($scale);
+        }
     }
 }
 
@@ -118,9 +123,13 @@ $breakXLg: 1440px;
         width: calc(100% + $HorizontalAdd);
     }
     &:hover:before {
-        transform: scaleX(1);
+        @media #{$mouseDevice} {
+            transform: scaleX(1);
+        }
     }
     &:hover:after {
-        transform: scaleY(1);
+        @media #{$mouseDevice} {
+            transform: scaleY(1);
+        }
     }
 }
